@@ -1,0 +1,203 @@
+:root {
+  --bg-main: #0a0a12;
+  --bg-card: rgba(22, 22, 35, 0.6);
+  --bg-card-border: rgba(255, 255, 255, 0.08);
+  --accent-primary: #7c4dff;
+  --accent-secondary: #00e5ff;
+  --accent-tertiary: #ff4081;
+  --text-main: #e0e0e6;
+  --text-muted: #8080a0;
+  --glass-blur: blur(16px);
+  --font-sans: 'Outfit', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --shadow-glow: 0 0 25px rgba(124, 77, 255, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  background-image: 
+    radial-gradient(circle at 10% 10%, rgba(124, 77, 255, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 90% 90%, rgba(0, 229, 255, 0.05) 0%, transparent 50%);
+  background-attachment: fixed;
+}
+
+/* Animations */
+@keyframes pulse-glow {
+  0% { filter: drop-shadow(0 0 5px #00ff88); }
+  50% { filter: drop-shadow(0 0 15px #00ff88); }
+  100% { filter: drop-shadow(0 0 5px #00ff88); }
+}
+
+.node.active rect, .node.active circle {
+  animation: pulse-glow 1.5s infinite;
+}
+
+/* UI Components */
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--bg-card-border);
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.preset-btn {
+  transition: all 0.2s ease;
+}
+
+.preset-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.nav-btn {
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.nav-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--accent-primary);
+}
+
+.nav-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.char-card {
+  background: #0a0a0c;
+  border: 1px solid #1a1a1c;
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+
+.char-card:hover {
+  transform: translateY(-2px);
+  border-color: #333;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.section-header {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #444;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  padding-bottom: 10px;
+}
+
+.glow-text {
+  background: linear-gradient(to right, #fff, var(--text-muted));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 8px rgba(255,255,255,0.1));
+}
+
+.btn-primary {
+  background: var(--accent-primary);
+  border: none;
+  border-radius: 6px;
+  color: white;
+  padding: 10px 20px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.9rem;
+}
+
+.btn-primary:hover:not(:disabled) {
+  filter: brightness(1.2);
+  box-shadow: 0 0 20px rgba(124, 77, 255, 0.4);
+}
+
+.input-field {
+  background: #10101a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: white;
+  padding: 12px 20px;
+  font-family: var(--font-sans);
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.input-field:focus {
+  border-color: var(--accent-primary);
+}
+
+/* Range Slider */
+input[type=range] {
+  -webkit-appearance: none;
+  background: transparent;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 4px;
+  background: #222;
+  border-radius: 2px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  background: var(--accent-secondary);
+  margin-top: -5px;
+  cursor: pointer;
+  box-shadow: 0 0 10px var(--accent-secondary);
+}
+
+.char-box-node:hover {
+  transform: translateY(-5px) scale(1.05);
+  filter: brightness(1.1);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stat-label {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+.stat-value {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--accent-secondary);
+}
