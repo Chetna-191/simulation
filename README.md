@@ -1,16 +1,33 @@
-# React + Vite
+# HuffZip: Interactive Huffman Coding Simulator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+HuffZip is a high-performance, visually immersive educational tool designed to help students and developers understand the Huffman Coding algorithm. It features a cinematic "Simulation Theater" that visualizes the entire process from frequency mapping to bit-stream encoding.
 
-Currently, two official plugins are available:
+## 🚀 Key Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Forest-to-Tree Animation**: Watch as individual character nodes (a forest) merge step-by-step into a single master Huffman tree.
+- **Cinematic Visualization**: Modern dark-themed UI with glassmorphism, neon borders, and smooth D3.js transitions.
+- **Real-time Metrics**: Track original vs. compressed size, compression ratios, and the final bit-stream output.
+- **Greedy Merge Log**: A detailed log explaining each step of the algorithm as it happens.
+- **Interactive Controls**: Play, pause, step forward/backward, and adjust simulation speed in real-time.
 
-## React Compiler
+## 🛠️ Built With
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React**: Frontend framework.
+- **D3.js**: High-detail tree and forest visualizations.
+- **Framer Motion**: Smooth UI transitions.
+- **Vite**: Ultra-fast build tool.
 
-## Expanding the ESLint configuration
+## 📖 How to Use
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. **Enter Text**: Type any text in the input field at the top.
+2. **Select Presets**: Use the "Examples" bar to quickly test common patterns (Pangram, Redundancy, etc.).
+3. **Simulate**: Click "Simulate Compression" to start the animation.
+4. **Explore**: Use the step controls to analyze the merge process or wait for the auto-play to finish.
+5. **Export**: Once finished, download the final bit-stream as a binary file.
+
+## 📦 Deployment
+
+This project is optimized for deployment on **Vercel**. Simply connect your GitHub repository and Vercel will handle the rest!
+
+---
+Designed for Education • Built with React & D3
